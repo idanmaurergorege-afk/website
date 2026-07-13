@@ -37,6 +37,8 @@ yarn-error.log*
 # local sqlite db + locally-stored api keys (never committed)
 /data/*.db
 /data/*.db-journal
+/data/*.db-shm
+/data/*.db-wal
 /data/config.json
 
 # vercel
