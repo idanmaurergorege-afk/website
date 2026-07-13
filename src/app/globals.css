@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-sora), system-ui, sans-serif;
+
+  --color-canvas: #0a0e14;
+  --color-surface: #10151f;
+  --color-surface-2: #161c29;
+  --color-surface-3: #1f2635;
+  --color-border: #262e40;
+
+  --color-ink: #e7eaf1;
+  --color-ink-dim: #93a0b8;
+  --color-ink-faint: #5b6478;
+
+  --color-brand-400: #34d8b0;
+  --color-brand-500: #14b892;
+  --color-brand-600: #0d9478;
+
+  --color-gold-400: #f5c563;
+  --color-gold-500: #eab040;
+
+  --color-positive: #34d399;
+  --color-negative: #fb7185;
+
+  --color-cat-stock: #60a5fa;
+  --color-cat-crypto: #f7931a;
+  --color-cat-metal: #eab040;
+  --color-cat-realestate: #2dd4bf;
+  --color-cat-watch: #c084fc;
+  --color-cat-car: #fb7185;
+  --color-cat-other: #94a3b8;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+  --color-canvas: #f5f6f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #f9f9fc;
+  --color-surface-3: #eef0f6;
+  --color-border: #e1e3ee;
+
+  --color-ink: #131722;
+  --color-ink-dim: #565f75;
+  --color-ink-faint: #8a92a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-faint);
+}
+
+.glass {
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-border bg-surface-2 px-3 py-2 text-sm text-ink outline-none transition focus:ring-2 focus:ring-brand-500/40 disabled:opacity-60;
+  }
+}
